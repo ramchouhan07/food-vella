@@ -7,21 +7,24 @@ import { Link, Outlet, Route, Router, Routes ,BrowserRouter, createBrowserRouter
 import Body from './components/Body';
 import Loginpage from './components/Loginpage';
 import Footer from './Footer';
-
-
+import { useState } from 'react';
 
 
 
 function App() {
+ const [count,setcount] = useState(0);
+ function logout(){
+  setcount(0)
+ }
+ function login(){
+  setcount(1);
+ }
+  
   return ( 
-<div>
-
+    <div>
+      {count ? <Body/>:<Loginpage login = {login} />}
+    </div>
   
-  
-  <Body/>
-  
-
- </div>
   );
 }
  

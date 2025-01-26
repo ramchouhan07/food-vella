@@ -17,12 +17,11 @@ else if (count>=5){
 }
 const change = ()=>{
     setcount(count+1)
-    console.log("next")
-
+    
 }
 const previous = ()=>{
     setcount(count-1)
-    console.log("pre")
+    
 }
 
 

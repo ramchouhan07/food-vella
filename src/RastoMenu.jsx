@@ -3,13 +3,15 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 import CDN_IMG from "./constant";
 import Shippingui from "./components/Shippingui"
-const Rastomenu = ()=>{
-const {id}  = useParams();
 
+
+const   Rastomenu = ()=>{
+const {id}  = useParams();
 console.log(id)
+// const count = useSelector((state)=> state.counter.value);
+// const dispatch  = useDispatch()
 
 const [menuData, setmenuData] = useState();
-
 
 useEffect(()=>{
     menuApi();
@@ -30,10 +32,11 @@ console.log(menuData?.cards[5]?.groupedCard?.cardGroupMap.REGULAR?.cards[1]?.car
     <div>
         <div>
    <h1>{id}</h1>
-    { menuData?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card?.itemCards.map((item,i)=>{
+    { menuData?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card?.itemCards.map((item,i)=>
+    {
   const imageUrl = item?.card?.info?.imageId ? CDN_IMG+ item?.card?.info?.imageId : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbNHY7SCyNH3seBH330zb2iIWJFa5-Jsyxlg&s"
-return(<>
-<div className="flex m-8 border-4 h-52 p-2 bg-gray-200 ">
+return(
+<div className="flex m-8 border-4 h-52 p-2 bg-gray-500 " key={i}>
 <div className="relative gap-y-4 ">
 
     <h1 className="font-extrabold">{item.card?.info.name}</h1>
@@ -51,9 +54,9 @@ return(<>
         </div>
 </div>
 
-  </>)
+  )
     })}
-        </div>
+        </div>  
     </div>
    
     

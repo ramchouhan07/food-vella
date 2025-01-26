@@ -7,13 +7,14 @@ import Card from './navbar/Card-add'
 import Body from './Body'
 import Loginpage from './Loginpage'
 
-function Header(){
+function Header({}){
   const [log,setlog] = useState(true);
 
  let  Change = ()=>{
   // const [log,setlog] = useState();
   if(log){
     alert("WELLCOME YOU ARE LOGIN")
+   
   }
  else alert("!!you are logout"); 
  

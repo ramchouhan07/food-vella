@@ -1,6 +1,6 @@
 import React, { Component, useState,useEffect,useRef , ReactDOM} from 'react'
 import Search from './Search';
-import { Link, Router, Routes , Route ,Outlet,RouterProvider , createBrowserRouter, redirect} from 'react-router-dom';
+import { Link, Router, Routes , Route ,Outlet,RouterProvider , createBrowserRouter, redirect, useNavigate} from 'react-router-dom';
 // import Card from './navbar/Card';
 import Contact from './navbar/Contact';
 import Cardadd from './navbar/Card-add';
@@ -116,9 +116,10 @@ const Card = () => {
     setdata(burgerKing);
   },[])
   
-      
+const navigate = useNavigate()
    const menuPage = ()=>{
-    window.location.href = "/menu";
+navigate("/menu")
+    // window.location.href = "/menu";
   }
   
  
@@ -157,7 +158,7 @@ return (<>
 
   return(
 
-    <div className='h-full'>
+    <div className='h-full mr-36 ml-36 '>
     
   <Slider />  
 <div>
@@ -174,17 +175,17 @@ return (<>
 {/* food items */}
 <div className='h-full flex flex-wrap overflow-hidden min-h-fit gap-10  ' onClick={menuPage}>
 
-{newfilterdata.map((item)=>{
-  return (<>
- <div > 
-  <div className='border  bg-gray-400 h-64 shadow-lg ' >
+{newfilterdata.map((item,i)=>{
+  return (
+ <div key = {i}> 
+  <div className='border-2 rounded-lg transform transition-transform duration-300 hover:scale-110 h-64 shadow-lg ' >
 
   <img src={item.food_image} className='w-52 border-r-2 rounded-full h-52'/>
   <h1>{item.restaurant_name}</h1>
   <h1>{item.food_id}</h1>
   </div>
   </div>
-  </>)
+  )
 })}
                                                                                      
 </div>
@@ -198,7 +199,7 @@ const AppLaout = ()=>{
   <div className='min-h-[400vh]'>
   <div><Header /></div> 
  
- <div> <Outlet /></div>
+ <div > <Outlet /></div>
  
   <div className='mt-48 bottom-0 left-0'>  <Footer /></div>
 
