@@ -10,9 +10,12 @@ const {id}  = useParams();
 console.log(id)
 // const count = useSelector((state)=> state.counter.value);
 // const dispatch  = useDispatch()
-
+const [count , setcount] = useState(0)
 const [menuData, setmenuData] = useState();
-
+const handler = ()=>{
+  setcount(count+1)
+  console.log(count)
+};
 useEffect(()=>{
     menuApi();
 },[])
@@ -50,7 +53,9 @@ return(
 </div >
        <div id="i" className="absolute  right-32 w-42 h-42 items-center text-center">
        <img src={imageUrl} alt="img" id={i} className="w-40 h-32 m-0 p-0 rounded"/>
-       <button className="  bg-gray-50  px-10 py-3 text-green-500 font-extrabold   rounded-full shadow-lg hover:bg-gray-500 transition duration-300  z-10">add</button>
+       <button onClick={handler} className="  bg-gray-50  px-10 py-3 text-green-500 font-extrabold 
+         rounded-full shadow-lg hover:bg-gray-500
+          transition duration-300  z-10" >add</button>
         </div>
 </div>
 

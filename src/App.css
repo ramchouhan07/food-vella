@@ -9,7 +9,7 @@ body{
   justify-content: center;
   align-items: center;
   margin: 5px;
-
+  height: 150px;
   justify-content: space-between;
   background-image: url("https://www.shutterstock.com/image-illustration/fastfood-hand-drawn-cartoon-doodles-260nw-1892066488.jpg")
 }

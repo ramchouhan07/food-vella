@@ -15,6 +15,7 @@ import CDN_IMG from '../constant';
 import Slider from './Slider';
 import useOnline from './useOnline';
 import OfflinPage from '../offline/OfflinePage';
+import YourRecipe from './navbar/YourRecipy';
 
 
 const burgerKing = 
@@ -178,11 +179,12 @@ return (<>
 {newfilterdata.map((item,i)=>{
   return (
  <div key = {i}> 
-  <div className='border-2 rounded-lg transform transition-transform duration-300 hover:scale-110 h-64 shadow-lg ' >
+  <div className='border-2 rounded-lg transform transition-transform duration-300 hover:scale-110 h-64 shadow-lg justify-center  ' >
 
   <img src={item.food_image} className='w-52 border-r-2 rounded-full h-52'/>
   <h1>{item.restaurant_name}</h1>
-  <h1>{item.food_id}</h1>
+  <h1>{`${"000"}${item.food_id}`}</h1>
+
   </div>
   </div>
   )
@@ -230,7 +232,11 @@ const AppLaout = ()=>{
    {
     path: '/menu',
     element: <Rastomenu  />
-   }
+   },
+   {
+    path: '/yourRecipe',
+    element: <YourRecipe />
+   },
   ],
   }
   ]
